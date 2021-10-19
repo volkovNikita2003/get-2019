@@ -67,9 +67,9 @@ try:
     experiment_time = time_end - time_start #время эксперемента
     T = experiment_time / (len(data) - 1) #период измерений *(len(data) - 1) т.к. промежутков времени на 1 меньше, чем отсчетов
     sampling_rate = (len(data) - 1) / experiment_time #частота дискретезации
-    voltage_1 = maxVoltage / levels #шаг по напряжению
+    voltage_step = maxVoltage / levels #шаг по напряжению
     print()
-    print("Длительность эксперимента = {} с, период измерений = {:.5f} с, часота дискретизации = {:.5f} Гц, шаг по напряжению = {:.5f} В".format(experiment_time, T, sampling_rate, voltage_1))
+    print("Длительность эксперимента = {} с, период измерений = {:.5f} с, часота дискретизации = {:.5f} Гц, шаг по напряжению = {:.5f} В".format(experiment_time, T, sampling_rate, voltage_step))
 
     #построение графика
     plt.plot(data)
@@ -84,7 +84,7 @@ try:
     #запись настроек в файл settings.txt
     with open('settings.txt', 'w') as f:
         f.write("Период измерений: {} с\n".format(T))
-        f.write("Единица напряжения: {:.3f} В".format(voltage_1))
+        f.write("Единица напряжения: {:.3f} В".format(voltage_step))
         print("Настройки записаны в setting.txt")
     
 finally:
