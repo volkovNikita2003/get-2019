@@ -14,7 +14,6 @@ time_array = np.arange(0.0, Nt*setting_array[0], setting_array[0])
 index_max_voltage = np.argmax(data_array)
 time_up = round(index_max_voltage * setting_array[0], 2)
 time_down = round((Nt - index_max_voltage) * setting_array[0], 2)
-print(time_up, time_down)
 
 #построение графика
 count_markers = 50
